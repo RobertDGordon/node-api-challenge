@@ -1,13 +1,21 @@
 import React from 'react';
-import '../App.css';
+import styled from 'styled-components';
+
+const Head = styled.header`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+`
 
 function Home(props) {
 
   return (
-      <header>
+      <Head>
         <h1>Node API Challenge</h1>
-        <button onClick={()=> props.history.push('/projects')}>Show me the data!</button>
-      </header>
+        {/* <button onClick={()=> props.history.push('/projects')}>Show me the data!</button> */}
+      </Head>
   );
 }
 

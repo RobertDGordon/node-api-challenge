@@ -105,7 +105,7 @@ function Users(props) {
         </form>
       </SearchBar>
       <UserCards>
-      {props.users.map (user => (
+      {props.projects.map (user => (
         <Card key={user.id} name={user.name} id={user.id} {...user}/>
       ))}
     </UserCards>
