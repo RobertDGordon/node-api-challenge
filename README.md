@@ -40,13 +40,23 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] Mention two parts of Express that you learned about this week.
 
+I learned about routers and middleware.
+
 - [ ] Describe Middleware?
+
+Middleware is code that intercepts the process to perform functions, or even modify the response.
 
 - [ ] Describe a Resource?
 
+A resource is an endpoint on the API.
+
 - [ ] What can the API return to help clients know if a request was successful?
 
+Status codes.
+
 - [ ] How can we partition our application into sub-applications?
+
+By calling the sub-app on the mount point (app.use('/mount', sub-app))
 
 ## Minimum Viable Product
 
