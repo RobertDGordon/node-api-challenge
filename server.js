@@ -12,7 +12,7 @@ server.use(express.json());
 server.use(logger);
 
 server.use('/api/projects', projectsRouter);
-server.use('/api/actions', actionsRouter);
+// server.use('/api/actions', actionsRouter);
 
 server.get('/', (req, res) => {
     res.send(`<h2>Hello universe.</h2>`);
