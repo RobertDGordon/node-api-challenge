@@ -10,20 +10,27 @@ const Main = styled.div`
   display: flex;
   flex-direction: column;
   /* flex-wrap: wrap; */
-  justify-content: center;
-  /* align-items: center; */
+  /* justify-content: center; */
+  align-items: center;
   width: 100%;
   height: 100vh;
   margin: 0 auto;
+  position: relative;
+  #plate{
+      position: absolute;
+      bottom: 175px;
+      z-index: 0;
+  }
 `
 
 const SearchBar = styled.section`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 10px auto;
+    margin: 20px auto;
+    /* margin-bottom: 100px; */
     width: 620px;
-    height: 50px;
+    height: 10px;
     padding: 10px;
     background-color: white;
     border: 1px solid black;
@@ -33,10 +40,9 @@ const SearchBar = styled.section`
       display: flex;
       width: 100%;
       justify-content: space-evenly;
-      /* border: 1px solid red; */
     }    
     input{
-      margin: 0 5px;
+      margin: 10px 5px;
       border-left: 1px solid black;
     }
     label{
@@ -52,12 +58,15 @@ const SearchBar = styled.section`
 
 const UserCards = styled.section`
   display: flex;
-  flex-direction: row;
+  flex-direction: column-reverse;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   max-height: 650px;
-  overflow: auto;
+  margin-top: 130px;
+  position: absolute;
+  bottom: 200px;
+  z-index: 1;
 `
 
 function Users(props) {
@@ -88,27 +97,21 @@ function Users(props) {
       <SearchBar>
         <form onSubmit={event => handleSubmit(event)}>
           <label>
-            Name:
+            Project Id:
             <input type="text" name="name" onChange={event => handleChange(event)} />
           </label>
-          <label>
-            Status:
-            {/* <input type="text" name="status" onChange={event => handleChange(event)} /> */}
-            <select name="status" onChange={event => handleChange(event)}>
-              <option value=''>All</option>
-              <option value='Alive'>Alive</option>
-              <option value='Dead'>Dead</option>
-              <option value='Unknown'>Unknown</option>
-            </select>
-          </label>
-          <button>Show Me What You Got!</button>
+          <button>Stack 'em</button>
         </form>
       </SearchBar>
+      <div id='plate'>
+        <img src='../img/plate.png' alt='plate'/>
+      </div>
       <UserCards>
       {props.projects.map (user => (
         <Card key={user.id} name={user.name} id={user.id} {...user}/>
       ))}
     </UserCards>
+
     </Main>
   );
 }
