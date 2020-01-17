@@ -1,15 +1,18 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 import styled, {keyframes} from 'styled-components'
-import {flipInY} from 'react-animations'
+import {bounceInDown} from 'react-animations'
 
-const flipAnim = keyframes`${flipInY}`
+const bounceAnim = keyframes`${bounceInDown}`
 
-let test = `1000ms`
+const test = () =>{
+    let random = Math.floor(Math.random() * (4000 - 800)) + 800;
+    console.log(random)
+    return random
+}
 
 const CardDiv = styled.div`
-    animation-duration: ${test};
-    animation-name: ${flipAnim};
+    animation: ${()=> test()}ms ${bounceAnim};
     background: url('../img/pancake.png');
     background-position: center;
     display: flex;
@@ -44,8 +47,6 @@ const CardDiv = styled.div`
 `
 
 const Card = (props) => {
-
-    test = `${props.id}ms`
 
     return(
         <>
