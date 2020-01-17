@@ -34,7 +34,7 @@ router.get('/:id', (req, res) => {
     });
   });
 
-router.post('/', (req, res, next) => {
+router.post('/', mdlware.validate('name'), mdlware.validate('description'), (req, res, next) => {
   Projects.insert(req.body)
     .then(project => {
       res.status(201).json(project);

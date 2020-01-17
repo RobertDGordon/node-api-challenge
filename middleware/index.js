@@ -1,6 +1,6 @@
 function validate(field) {
 	return function (req, res, next){
-    console.log('validateUser:', req.body[field])
+    console.log(`validate ${field}:`, req.body[field])
 		if (req.body[field]){
 			next();
 		}else if (!req.body[field]) {
